@@ -1,4 +1,4 @@
-import { useStoredJoineeList } from "./JoineContext.tsx";
+import { useStoredJoineeList } from "./JoineeContext.tsx";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {
   Table,
@@ -23,7 +23,7 @@ const theme = createTheme({
   },
 });
 
-const JoineTable = () => {
+const JoineeTable = () => {
   const {
     storedJoineeList,
     handleDeleteJoinee,
@@ -161,4 +161,4 @@ const JoineTable = () => {
   );
 };
 
-export default JoineTable;
+export default JoineeTable;

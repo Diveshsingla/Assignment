@@ -1,7 +1,7 @@
 import { FormEvent, useReducer } from "react";
-import { useStoredJoineeList } from "./JoineContext.tsx";
+import { useStoredJoineeList } from "./JoineeContext.tsx";
 import "../styles.css";
-const AddJoinees = () => {
+const AddJoinee = () => {
   const { handleJoin } = useStoredJoineeList();
 
   interface FormState {
@@ -16,7 +16,6 @@ const AddJoinees = () => {
   const formReducer = (state: FormState, action: FormAction): FormState => {
     switch (action.type) {
       case "SET_FIELD":
-        // console.log(action.value);
         return { ...state, [action.field]: action.value };
 
       case "CLEAR_FIELDS":
@@ -47,8 +46,8 @@ const AddJoinees = () => {
   return (
     <div className="form-container">
       <h1 className="form-heading">
-        <text>Join </text>
-        <text className="heading-part">Unique Schools</text>
+        Join 
+        <span className="heading-part"> Unique Schools</span>
       </h1>
       <form onSubmit={handleFormSubmit}>
         <div className="form-div">
@@ -98,4 +97,4 @@ const AddJoinees = () => {
   );
 };
 
-export default AddJoinees;
+export default AddJoinee;

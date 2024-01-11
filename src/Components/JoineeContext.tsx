@@ -42,15 +42,12 @@ export const JoineeProvider = ({ children }: JoineeContextProp) => {
     if (task.name && task.email) {
       // Generate unique hex code
       const newHexCode: string = uuidv4().replace(/-/g, "").slice(0, 16);
-      console.log(newHexCode);
       // Update Joinee state
       setStoredJoineeList(() => {
         const newJoineeList: Joinee[] = [
           { name: task.name, email: task.email, uuid: newHexCode },
           ...storedJoineeList,
         ];
-
-        console.log(newJoineeList);
         localStorage.setItem("JoineeList", JSON.stringify(newJoineeList));
         return newJoineeList;
       });
@@ -70,7 +67,6 @@ export const JoineeProvider = ({ children }: JoineeContextProp) => {
       const newJoineeList = [...prev];
       newJoineeList[index].name = name;
       newJoineeList[index].email = email;
-      console.log(newJoineeList);
       localStorage.setItem("JoineeList", JSON.stringify(newJoineeList));
       return newJoineeList;
     });

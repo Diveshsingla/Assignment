@@ -1,15 +1,15 @@
 import "./styles.css";
-import AddJoinees from "./Components/AddJoinees.tsx";
-import JoineTable from "./Components/JoineTable.tsx";
+import AddJoinee from "./Components/AddJoinee.tsx";
+import JoineeTable from "./Components/JoineeTable.tsx";
 
 export default function App() {
   return (
     <div className="App">
       <div className="child">
-        <AddJoinees />
+        <AddJoinee />
       </div>
       <div className="child">
-        <JoineTable />
+        <JoineeTable />
       </div>
     </div>
   );
