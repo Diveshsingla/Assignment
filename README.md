@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Add Joinee Feature 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The "Join” feature is a fundamental part of the App, allowing users to add new subscribers to the system. Subscribers can be students or other users associated with the educational institution. This feature enhances the app's functionality by providing a mechanism to dynamically update the list of joinee’s.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Implementation Details
 
-## Expanding the ESLint configuration
+### 1. User Interface
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The user interface for adding a new subscriber is implemented as a form within the app. The form includes fields for entering the subscriber's name, email, and a unique 16-digit hex code. There’s also an option to download the subscribers list in csv format. The UI is designed to be user-friendly, responsive guiding the user through the process of entering the required information. I have also implemented a drag and drop feature to arrange the order of the subscribers with the possibility to edit or delete a subscriber from the list.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### 2. Unique Hex Code Generation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To ensure uniqueness and identification, each subscriber is assigned a unique 16-digit hex code. This code is automatically generated upon adding a new subscriber. The generation logic may involve a combination of randomisation and validation to ensure the uniqueness of each hex code within the system.
+
+### 3. Form Validation
+
+The form includes validation logic to ensure that the required fields are filled, and the email format is valid. Additionally, checks are implemented to verify the uniqueness of the generated hex code to prevent collisions and ensure data integrity.
+
+### 4. Frontend Implementation
+
+The frontend logic for handling the "Add Joinee” feature is written in React. The state management is handled using React's built-in state and context APIs. I have also stored the data locally to avoid data loss.
+
